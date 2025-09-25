@@ -8,9 +8,8 @@
 </head>
 <body>
 
-Inicio
-Agregar Seguros
-Listar Seguros
+	<a href="Inicio.jsp"> Inicio</a> <a href="AgregarSeguros.jsp"> Agregar Seguros</a> <a href="ListarSeguros.jsp"> ListarSeguros</a>
+
 <br>
 <h2>"Tipos de seguros en la base de datos"</h2>
 <br>
