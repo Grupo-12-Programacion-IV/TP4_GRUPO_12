@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<a href="Inicio.jsp"> Inicio</a> <a href="AgregarSeguros.jsp"> Agregar Seguros</a> <a href="ListarSeguros.jsp"> ListarSeguros</a>
+	<a href="Inicio.jsp"> Inicio</a> <a href="AgregarSeguros.jsp"> Agregar Seguros</a> <a href="servletSeguro?Param=1"> ListarSeguros</a>
 
 <br>
 <h2>"Tipos de seguros en la base de datos"</h2>
@@ -23,6 +23,8 @@ Busqueda por tipo de seguros:
 </select>
 
 <input type="submit" name="btnFiltrar" value="Filtrar"> 
+
+
 
 
 </body>
