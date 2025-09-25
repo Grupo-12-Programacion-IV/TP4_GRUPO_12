@@ -28,7 +28,7 @@ public class servletSeguro extends HttpServlet {
 			seguroDao sdao = new seguroDao();
 			ArrayList<seguro> lista = sdao.obtenerSeguros();
 			
-			request.setAttribute("listaU", lista);
+			request.setAttribute("listaS", lista);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguros.jsp");
 			rd.forward(request, response);
