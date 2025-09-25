@@ -20,12 +20,12 @@ public class seguroDao {
 	    } catch (ClassNotFoundException e) {
 	        e.printStackTrace();
 	    }
-
+		
 	    ArrayList<seguro> lista = new ArrayList<seguro>();
 	    Connection conn = null;
 
 	    try {
-	        conn = DriverManager.getConnection(host + dbName, user, pass);
+	        conn = DriverManager.getConnection(host+dbName, user, pass);
 	        Statement st = conn.createStatement();
 	        ResultSet rs = st.executeQuery("SELECT * FROM seguros");
 	        
