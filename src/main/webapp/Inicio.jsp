@@ -1,12 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <!DOCTYPE html>
+    <html>
 
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Inicio</title>
+    </head>
+
+    <body>
+
+        <a href="Inicio.jsp"> Inicio</a> <a href="AgregarSeguros.jsp"> Agregar Seguros</a> <a
+            href="servletSeguro?Param=1"> ListarSeguros</a>
+
+        <br><br>
+        <h2>Soy la página inicio</h2>
+
+    </body>
+
+    </html>
