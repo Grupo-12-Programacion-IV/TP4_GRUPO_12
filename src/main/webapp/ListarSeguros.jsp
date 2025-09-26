@@ -21,9 +21,9 @@
 					Busqueda por tipo de seguros:
 					<select name="TipoSeguro">
 
-						<option>Seguro de casas</option>
-						<option>Seguro de vida</option>
-						<option>Seguro de motos</option>
+						<option value= 1>Seguro de casas</option>
+						<option value= 2>Seguro de vida</option>
+						<option value= 3>Seguro de motos</option>
 
 					</select>
 
@@ -33,8 +33,14 @@
 				<% ArrayList<seguro> listaSeguros = null;
 					if(request.getAttribute("listaS") != null)
 					{
-					listaSeguros = (ArrayList<seguro>)request.getAttribute("listaS");
+					listaSeguros = (ArrayList<seguro>) request.getAttribute("listaS");
 						}
+						
+						ArrayList<seguro> listaSegurosFiltrados = null;
+											if(request.getAttribute("listaF") != null)
+											{
+											listaSegurosFiltrados = (ArrayList<seguro>)request.getAttribute("listaF");
+												}
 
 						%>
 
@@ -46,7 +52,7 @@
 								<th>Costo Contratacion</th>
 								<th>Costo Maximo Asegurado</th>
 							</tr>
-							<% if(listaSeguros !=null) for(seguro seg : listaSeguros) { %>
+							<% if(listaSeguros!=null) for(seguro seg : listaSeguros) { %>
 								<tr>
 									<td>
 										<%=seg.getIdSeguro() %>
@@ -65,6 +71,26 @@
 									</td>
 								</tr>
 								<% } %>
+								
+								<% if(listaSegurosFiltrados!=null) for(seguro seg : listaSegurosFiltrados) { %>
+																<tr>
+																	<td>
+																		<%=seg.getIdSeguro() %>
+																	</td>
+																	<td>
+																		<%=seg.getDescripcion() %>
+																	</td>
+																	<td>
+																		<%=seg.getIdTipo() %>
+																	</td>
+																	<td>
+																		<%=seg.getCostoContratacion() %>
+																	</td>
+																	<td>
+																		<%=seg.getCostoAsegurado() %>
+																	</td>
+																</tr>
+																<% } %>
 						</table>
 
 

@@ -14,6 +14,65 @@ public class seguroDao {
 
 	}
 
+	public ArrayList<seguro> obtenerSegurosPorTipo(int idTipo) throws SQLException
+    {
+        ArrayList<seguro> lista = new ArrayList<seguro>();
+        String query = "SELECT * FROM seguros WHERE idTipo = ?";
+
+        Connection conn = DriverManager.getConnection(host + dbName, user, pass);
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, idTipo);
+
+        try
+        {
+            ResultSet rs = ps.executeQuery();
+ 
+            while (rs.next())
+            {
+                seguro s = new seguro();
+
+                s.setIdSeguro(rs.getInt("idSeguro"));
+                s.setDescripcion(rs.getString("descripcion"));
+                s.setIdTipo(rs.getInt("idTipo"));
+                s.setCostoContratacion(rs.getDouble("costoContratacion"));
+                s.setCostoAsegurado(rs.getDouble("costoAsegurado"));
+                lista.add(s);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
+    public ArrayList<tipoSeguro> obtenerTipos()
+    {
+        ArrayList<tipoSeguro> lista = new ArrayList<tipoSeguro>();
+
+        String query = "SELECT idTipo, descripcion FROM tipoSeguros";
+
+        try
+        {
+            Connection conn = DriverManager.getConnection(host + dbName, user, pass);
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next())
+            {
+                tipoSeguro t = new tipoSeguro();
+                t.setIdTipo(rs.getInt("idTipo"));
+                t.setDescripcion(rs.getString("descripcion"));
+                lista.add(t);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+	
 	public ArrayList<seguro> obtenerSeguros() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

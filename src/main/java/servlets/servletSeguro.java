@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -34,6 +35,25 @@ public class servletSeguro extends HttpServlet {
 			rd.forward(request, response);
 
 		}
+		
+		if (request.getAttribute("btnFiltrar")!=null) {
+	
+			seguroDao sdao = new seguroDao();
+			ArrayList<seguro> listaSeguros;
+			try {
+				listaSeguros = sdao.obtenerSegurosPorTipo(Integer.parseInt(request.getParameter("TipoSeguros")));
+				request.setAttribute("listaF", listaSeguros);
+
+				RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguros.jsp");
+				rd.forward(request, response);
+			} catch (NumberFormatException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+		}
+		
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
